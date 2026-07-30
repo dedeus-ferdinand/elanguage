@@ -4,6 +4,7 @@ import { CheckCircle2, Users, Zap, Award, BookOpen, Briefcase, Globe, TrendingUp
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { asset } from "@/lib/asset";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 /**
  * E_Language - English Certification for the Workplace
@@ -20,6 +21,14 @@ import { asset } from "@/lib/asset";
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
+
+  usePageMeta({
+    title: "E-Language | Programa de aceleración lingüística de inglés",
+    description:
+      "Transforme su inglés laboral en 12 semanas con metodología híbrida. Evaluación práctica y certificación alineada a SEP y CONOCER.",
+    path: "/",
+    image: "images/hero.webp",
+  });
 
   return (
     <div className="min-h-screen bg-white">
@@ -68,12 +77,14 @@ export default function Home() {
       {/* Hero Section con Overlay Corporativo */}
       <section className="relative min-h-screen flex items-center overflow-hidden py-20">
         {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663700860962/GrHcnfwoJCYZCtos3biTxc/hero-elanguage-new-Ebp4RwiQkon3WbQV8fXKSC.webp)',
-          }}
-        >
+        <div className="absolute inset-0">
+          <img
+            src={asset("images/hero.webp")}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            fetchPriority="high"
+            decoding="async"
+          />
           {/* Overlay corporativo */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
         </div>
@@ -259,7 +270,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" />
+                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" loading="lazy" />
                 <span className="font-bold">E-Language</span>
               </div>
               <p className="text-blue-200 text-sm">English Certification for the Workplace</p>

@@ -17,15 +17,15 @@ Tras aplicar los fixes, volver a medir Mobile y Desktop y comparar con esta lín
 ## Orden de ejecución
 
 ```text
-[ ] 1.1 Hero local (sacar CloudFront)
-[ ] 1.2 Favicon
-[ ] 2.1 lang="es"
-[ ] 2.2–2.3 Titles + meta descriptions por página
-[ ] 3.1 Quitar analytics Umami roto (placeholders)
-[ ] 2.4–2.7 Open Graph + robots.txt + sitemap.xml
-[ ] 4.1 Fuentes (sin @import; menos pesos)
-[ ] 4.2 Code splitting por ruta
-[ ] 1.3 loading="lazy" en imágenes no-LCP
+[x] 1.1 Hero local (sacar CloudFront)
+[x] 1.2 Favicon
+[x] 2.1 lang="es"
+[x] 2.2–2.3 Titles + meta descriptions por página
+[x] 3.1 Quitar analytics Umami roto (placeholders)
+[x] 2.4–2.7 Open Graph + robots.txt + sitemap.xml
+[x] 4.1 Fuentes (sin @import; menos pesos)
+[x] 4.2 Code splitting por ruta
+[x] 1.3 loading="lazy" en imágenes no-LCP
 [ ] Push + deploy Pages en verde
 [ ] Re-Lighthouse Mobile + Desktop y comparar
 ```

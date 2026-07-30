@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dedeus-ferdinand.github.io/elanguage/sitemap.xml

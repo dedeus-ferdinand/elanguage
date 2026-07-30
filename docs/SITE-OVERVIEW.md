@@ -46,8 +46,8 @@ Todo estático (sin rutas dinámicas tipo `/post/:id`).
 | Empresas | Local: `/images/empresas.webp` |
 | Fundadora | Local: `/images/fundadora.webp` |
 | Metodología | Local: `/images/metodologia.webp` |
-| Hero Home | CloudFront (externo; historialmente 403 fuera de Manus) |
-| Favicon | No existe |
+| Hero Home | Local: `/images/hero.webp` |
+| Favicon | `client/public/favicon.png` |
 | Manus storage | Ya no se usa en logo ni en las 4 imágenes de páginas |
 
 Carpeta de assets: `client/public/images/`

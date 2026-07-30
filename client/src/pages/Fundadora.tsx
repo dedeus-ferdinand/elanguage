@@ -3,10 +3,19 @@ import { CheckCircle2, Award, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { asset } from "@/lib/asset";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Fundadora() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
+
+  usePageMeta({
+    title: "Fundadora | E-Language",
+    description:
+      "Conozca a Paulina González, la visión detrás de E-Language y el enfoque en inglés para el mundo laboral.",
+    path: "/fundadora",
+    image: "images/fundadora.webp",
+  });
 
   const handleGoHome = () => {
     setLocation("/");
@@ -60,7 +69,7 @@ export default function Fundadora() {
       {/* Main Content */}
       <section className="py-0 bg-white">
         <div className="mb-8 -mx-4 md:-mx-8">
-          <img src={asset("images/fundadora.webp")} alt="Paulina González" className="w-screen h-auto" />
+          <img src={asset("images/fundadora.webp")} alt="Paulina González" className="w-screen h-auto" loading="lazy" />
         </div>
 
         <div className="container py-20">
@@ -154,7 +163,7 @@ export default function Fundadora() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" />
+                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" loading="lazy" />
                 <span className="font-bold">E-Language</span>
               </div>
               <p className="text-blue-200 text-sm">English Certification for the Workplace</p>

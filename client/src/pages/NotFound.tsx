@@ -2,9 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle, Home } from "lucide-react";
 import { useLocation } from "wouter";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function NotFound() {
   const [, setLocation] = useLocation();
+
+  usePageMeta({
+    title: "Página no encontrada | E-Language",
+    description: "La página que busca no existe. Vuelva al inicio de E-Language.",
+    path: "/404",
+  });
 
   const handleGoHome = () => {
     setLocation("/");

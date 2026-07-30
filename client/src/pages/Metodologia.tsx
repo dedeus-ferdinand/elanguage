@@ -4,10 +4,19 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { asset } from "@/lib/asset";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Metodologia() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
+
+  usePageMeta({
+    title: "Metodología | E-Language",
+    description:
+      "Enfoque híbrido: clases en vivo con tutores, práctica con IA y foco en el 40% final de competencia oral laboral.",
+    path: "/metodologia",
+    image: "images/metodologia.webp",
+  });
 
   const handleGoHome = () => {
     setLocation("/");
@@ -72,10 +81,11 @@ export default function Metodologia() {
 
           {/* Imagen Clases en Vivo - Responsiva */}
           <div className="mb-12 rounded-lg overflow-hidden shadow-lg bg-gray-50 flex items-center justify-center -mx-4 md:mx-0">
-            <img 
-              src={asset("images/metodologia.webp")} 
-              alt="Clases en Vivo con Tutores, Tecnología e Inteligencia Artificial" 
-              className="w-screen md:w-full h-auto" 
+            <img
+              src={asset("images/metodologia.webp")}
+              alt="Clases en Vivo con Tutores, Tecnología e Inteligencia Artificial"
+              className="w-screen md:w-full h-auto"
+              loading="lazy"
               style={{
                 objectFit: 'cover',
                 height: '500px',
@@ -130,7 +140,7 @@ export default function Metodologia() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" />
+                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" loading="lazy" />
                 <span className="font-bold">E-Language</span>
               </div>
               <p className="text-blue-200 text-sm">English Certification for the Workplace</p>

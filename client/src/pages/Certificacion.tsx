@@ -4,10 +4,19 @@ import { CheckCircle2, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { asset } from "@/lib/asset";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Certificacion() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
+
+  usePageMeta({
+    title: "Certificación | E-Language",
+    description:
+      "Certifique lo que realmente sabe hacer. Evaluación práctica y reconocimiento alineado a SEP y CONOCER.",
+    path: "/certificacion",
+    image: "images/certificacion.webp",
+  });
 
   const handleGoHome = () => {
     setLocation("/");
@@ -62,7 +71,7 @@ export default function Certificacion() {
       <section className="py-20 bg-blue-50">
         <div className="w-full">
           <div className="mb-12">
-            <img src={asset("images/certificacion.webp")} alt="Certifica lo que Realmente Sabes Hacer" className="w-screen h-auto" />
+            <img src={asset("images/certificacion.webp")} alt="Certifica lo que Realmente Sabes Hacer" className="w-screen h-auto" loading="lazy" />
           </div>
         </div>
         <div className="container">
@@ -146,7 +155,7 @@ export default function Certificacion() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" />
+                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" loading="lazy" />
                 <span className="font-bold">E-Language</span>
               </div>
               <p className="text-blue-200 text-sm">English Certification for the Workplace</p>
