@@ -4,7 +4,8 @@ Referencia de lo que se debe hacer en esta primera release del sitio E-Language.
 
 Objetivo: mejorar tiempos de carga, SEO básico, observabilidad (analytics) y publicación. Desktop y móvil.
 
-Estado actual del sitio (stack, rutas, assets, URL): [SITE-OVERVIEW.md](./SITE-OVERVIEW.md).
+Estado actual del sitio (stack, rutas, assets, URL): [SITE-OVERVIEW.md](./SITE-OVERVIEW.md).  
+Plan de fixes post-Lighthouse: [FIX-PLAN-BASELINE.md](./FIX-PLAN-BASELINE.md).
 
 ---
 
