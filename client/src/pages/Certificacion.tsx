@@ -68,10 +68,15 @@ export default function Certificacion() {
       </nav>
 
       {/* Main Content */}
-      <section className="py-20 bg-blue-50">
+      <section className="pt-0 pb-20 bg-blue-50">
         <div className="w-full">
-          <div className="mb-12">
-            <img src={asset("images/certificacion.webp")} alt="Certifica lo que Realmente Sabes Hacer" className="w-screen h-auto" loading="lazy" />
+          <div className="mb-12 overflow-hidden">
+            <img
+              src={asset("images/certificacion.webp")}
+              alt="Certifica lo que Realmente Sabes Hacer"
+              className="w-screen h-auto -translate-y-[10%]"
+              loading="lazy"
+            />
           </div>
         </div>
         <div className="container">
