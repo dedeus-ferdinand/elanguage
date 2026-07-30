@@ -30,6 +30,14 @@ Tras aplicar los fixes, volver a medir Mobile y Desktop y comparar con esta lín
 [ ] Re-Lighthouse Mobile + Desktop y comparar
 ```
 
+### Extra (post-baseline Lighthouse)
+
+```text
+[x] Preload del hero en HTML inicial
+[x] Fuentes no bloqueantes (media=print + onload)
+[x] Quitar Manus / jsx-loc del build de producción
+```
+
 ---
 
 ## Fase 0 — Preparación
