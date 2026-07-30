@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Award, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
+import { asset } from "@/lib/asset";
 
 export default function Fundadora() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function Fundadora() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="container flex items-center justify-between h-16">
           <button onClick={handleGoHome} className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition">
-            <img src="/images/logo.png" alt="E-Language Isotipo" className="w-10 h-10" />
+            <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-10 h-10" />
             <span className="font-bold text-lg text-blue-900">E-Language</span>
           </button>
           
@@ -59,7 +60,7 @@ export default function Fundadora() {
       {/* Main Content */}
       <section className="py-0 bg-white">
         <div className="mb-8 -mx-4 md:-mx-8">
-          <img src="/images/fundadora.webp" alt="Paulina González" className="w-screen h-auto" />
+          <img src={asset("images/fundadora.webp")} alt="Paulina González" className="w-screen h-auto" />
         </div>
 
         <div className="container py-20">
@@ -153,7 +154,7 @@ export default function Fundadora() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/images/logo.png" alt="E-Language Isotipo" className="w-8 h-8" />
+                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" />
                 <span className="font-bold">E-Language</span>
               </div>
               <p className="text-blue-200 text-sm">English Certification for the Workplace</p>

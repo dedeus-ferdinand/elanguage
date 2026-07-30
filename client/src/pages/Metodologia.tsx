@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
+import { asset } from "@/lib/asset";
 
 export default function Metodologia() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Metodologia() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="container flex items-center justify-between h-16">
           <button onClick={handleGoHome} className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition">
-            <img src="/images/logo.png" alt="E-Language Isotipo" className="w-10 h-10" />
+            <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-10 h-10" />
             <span className="font-bold text-lg text-blue-900">E-Language</span>
           </button>
           
@@ -72,7 +73,7 @@ export default function Metodologia() {
           {/* Imagen Clases en Vivo - Responsiva */}
           <div className="mb-12 rounded-lg overflow-hidden shadow-lg bg-gray-50 flex items-center justify-center -mx-4 md:mx-0">
             <img 
-              src="/images/metodologia.webp" 
+              src={asset("images/metodologia.webp")} 
               alt="Clases en Vivo con Tutores, Tecnología e Inteligencia Artificial" 
               className="w-screen md:w-full h-auto" 
               style={{
@@ -129,7 +130,7 @@ export default function Metodologia() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/images/logo.png" alt="E-Language Isotipo" className="w-8 h-8" />
+                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" />
                 <span className="font-bold">E-Language</span>
               </div>
               <p className="text-blue-200 text-sm">English Certification for the Workplace</p>

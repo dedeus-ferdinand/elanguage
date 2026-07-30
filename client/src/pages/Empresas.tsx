@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
+import { asset } from "@/lib/asset";
 
 export default function Empresas() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Empresas() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="container flex items-center justify-between h-16">
           <button onClick={handleGoHome} className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition">
-            <img src="/images/logo.png" alt="E-Language Isotipo" className="w-10 h-10" />
+            <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-10 h-10" />
             <span className="font-bold text-lg text-blue-900">E-Language</span>
           </button>
           
@@ -61,7 +62,7 @@ export default function Empresas() {
       <section className="py-0 bg-white">
         <div className="w-full">
           <div className="mb-0">
-            <img src="/images/empresas.webp" alt="Para Empresas" className="w-screen h-auto" />
+            <img src={asset("images/empresas.webp")} alt="Para Empresas" className="w-screen h-auto" />
           </div>
         </div>
         <div className="container py-20">
@@ -130,7 +131,7 @@ export default function Empresas() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/images/logo.png" alt="E-Language Isotipo" className="w-8 h-8" />
+                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" />
                 <span className="font-bold">E-Language</span>
               </div>
               <p className="text-blue-200 text-sm">English Certification for the Workplace</p>

@@ -59,4 +59,6 @@ Carpeta de assets: `client/public/images/`
 | Entorno | URL |
 |---------|-----|
 | Local | http://localhost:3000/ |
-| Producción | Pendiente (Release 1 — publicación) |
+| Producción (GitHub Pages) | https://dedeus-ferdinand.github.io/elanguage/ |
+
+Deploy: GitHub Action `.github/workflows/deploy-pages.yml` (build Vite con `base: /elanguage/`). En Settings → Pages, la fuente debe ser **GitHub Actions** (no “Deploy from a branch”).
