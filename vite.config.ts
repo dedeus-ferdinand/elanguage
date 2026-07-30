@@ -203,9 +203,21 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+export default defineConfig(({ command }) => {
+  const isDev = command === "serve";
+  const plugins: Plugin[] = [react(), tailwindcss()];
 
-export default defineConfig({
+  // Manus + JSX loc only in local dev — they add unload handlers / bloat to production.
+  if (isDev) {
+    plugins.push(
+      jsxLocPlugin(),
+      vitePluginManusRuntime(),
+      vitePluginManusDebugCollector(),
+      vitePluginStorageProxy(),
+    );
+  }
+
+  return {
   plugins,
   resolve: {
     alias: {
@@ -239,4 +251,5 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  };
 });
