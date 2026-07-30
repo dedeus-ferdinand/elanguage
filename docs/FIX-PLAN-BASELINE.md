@@ -26,7 +26,7 @@ Tras aplicar los fixes, volver a medir Mobile y Desktop y comparar con esta lín
 [x] 4.1 Fuentes (sin @import; menos pesos)
 [x] 4.2 Code splitting por ruta
 [x] 1.3 loading="lazy" en imágenes no-LCP
-[ ] Push + deploy Pages en verde
+[x] Push + deploy Pages en verde
 [ ] Re-Lighthouse Mobile + Desktop y comparar
 ```
 
