@@ -4,6 +4,7 @@ import { Route, Router, Switch } from "wouter";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { useAnalyticsPageViews } from "./hooks/useAnalyticsPageViews";
 
 const Home = lazy(() => import("./pages/Home"));
 const Metodologia = lazy(() => import("./pages/Metodologia"));
@@ -19,6 +20,8 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const routerBase = import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
 
 function AppRouter() {
+  useAnalyticsPageViews();
+
   return (
     <Switch>
       <Route path="/" component={Home} />
