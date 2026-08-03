@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dedeus-ferdinand.github.io/elanguage/sitemap.xml
+Sitemap: https://e-languagemexico.com/sitemap.xml

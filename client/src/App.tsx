@@ -10,6 +10,10 @@ const Metodologia = lazy(() => import("./pages/Metodologia"));
 const Certificacion = lazy(() => import("./pages/Certificacion"));
 const Empresas = lazy(() => import("./pages/Empresas"));
 const Fundadora = lazy(() => import("./pages/Fundadora"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const BlogPost2 = lazy(() => import("./pages/BlogPost2"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const routerBase = import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
@@ -22,6 +26,10 @@ function AppRouter() {
       <Route path="/certificacion" component={Certificacion} />
       <Route path="/empresas" component={Empresas} />
       <Route path="/fundadora" component={Fundadora} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/estructura-agilidad-ingles-oficina" component={BlogPost} />
+      <Route path="/blog/limitaciones-estrategia-comunicar-soluciones-ingles" component={BlogPost2} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

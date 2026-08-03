@@ -1,10 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import SiteFooter from "@/components/SiteFooter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { asset } from "@/lib/asset";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { CAL_COM_URL } from "@/lib/links";
 
 export default function Metodologia() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,6 +41,7 @@ export default function Metodologia() {
             <button onClick={() => setLocation("/certificacion")} className="text-sm text-gray-600 hover:text-blue-900 transition">Certificación</button>
             <button onClick={() => setLocation("/empresas")} className="text-sm text-gray-600 hover:text-blue-900 transition">Para Empresas</button>
             <button onClick={() => setLocation("/fundadora")} className="text-sm text-gray-600 hover:text-blue-900 transition">Fundadora</button>
+            <button onClick={() => setLocation("/blog")} className="text-sm text-gray-600 hover:text-blue-900 transition">Blog</button>
           </div>
           
           {/* Mobile Menu Button */}
@@ -49,7 +52,9 @@ export default function Metodologia() {
             {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
           </button>
           
-          <Button className="hidden md:block bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
+            <Button className="hidden md:block bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+          </a>
         </div>
         
         {/* Mobile Menu */}
@@ -61,7 +66,10 @@ export default function Metodologia() {
               <button onClick={() => { setLocation("/certificacion"); setMenuOpen(false); }} className="block text-sm text-gray-600 hover:text-blue-900 transition py-2 w-full text-left">Certificación</button>
               <button onClick={() => { setLocation("/empresas"); setMenuOpen(false); }} className="block text-sm text-gray-600 hover:text-blue-900 transition py-2 w-full text-left">Para Empresas</button>
               <button onClick={() => { setLocation("/fundadora"); setMenuOpen(false); }} className="block text-sm text-gray-600 hover:text-blue-900 transition py-2 w-full text-left">Fundadora</button>
-              <Button className="w-full bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+              <button onClick={() => { setLocation("/blog"); setMenuOpen(false); }} className="block text-sm text-gray-600 hover:text-blue-900 transition py-2 w-full text-left">Blog</button>
+              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="block">
+                <Button className="w-full bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+              </a>
             </div>
           </div>
         )}
@@ -127,50 +135,16 @@ export default function Metodologia() {
 
           {/* CTA */}
           <div className="text-center">
-            <Button size="lg" className="bg-red-500 hover:bg-red-600 text-white">
-              Conoce más sobre nuestra Metodología
-            </Button>
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-red-500 hover:bg-red-600 text-white">
+                Conoce más sobre nuestra Metodología
+              </Button>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-blue-900 text-white py-12">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <img src={asset("images/logo.png")} alt="E-Language Isotipo" className="w-8 h-8" loading="lazy" />
-                <span className="font-bold">E-Language</span>
-              </div>
-              <p className="text-blue-200 text-sm">English Certification for the Workplace</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Programas</h4>
-              <ul className="space-y-2 text-blue-200 text-sm">
-                <li><button onClick={handleGoHome} className="hover:text-white transition">Inicio</button></li>
-                <li><a href="#" className="hover:text-white transition">Metodología</a></li>
-                <li><button onClick={() => setLocation("/certificacion")} className="hover:text-white transition">Certificación</button></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Empresa</h4>
-              <ul className="space-y-2 text-blue-200 text-sm">
-                <li><button onClick={() => setLocation("/empresas")} className="hover:text-white transition">Para Empresas</button></li>
-                <li><button onClick={() => setLocation("/fundadora")} className="hover:text-white transition">Fundadora</button></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contacto</h4>
-              <p className="text-blue-200 text-sm">Email: info@e-language.mx</p>
-              <p className="text-blue-200 text-sm">Tel: +52 (555) 123-4567</p>
-            </div>
-          </div>
-          <div className="border-t border-blue-800 pt-8 text-center text-blue-200 text-sm">
-            <p>&copy; 2024 E-Language. Todos los derechos reservados.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
-const SITE_ORIGIN = "https://dedeus-ferdinand.github.io";
-const SITE_BASE = "/elanguage";
+const SITE_ORIGIN = "https://e-languagemexico.com";
+const SITE_BASE = "";
 
 function absoluteUrl(path: string): string {
   const clean = path.startsWith("/") ? path : `/${path}`;
-  if (clean === "/") return `${SITE_ORIGIN}${SITE_BASE}/`;
+  if (clean === "/") return `${SITE_ORIGIN}/`;
   return `${SITE_ORIGIN}${SITE_BASE}${clean}`;
 }
 
