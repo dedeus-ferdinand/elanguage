@@ -47,17 +47,18 @@ export default function BlogPost2() {
             <button onClick={handleGoToBlog} className="text-sm text-blue-900 font-semibold">Blog</button>
           </div>
           
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2"
-          >
-            {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
-          </button>
-          
-          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
-            <Button className="hidden md:block bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2"
+              aria-label="Abrir menú"
+            >
+              {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
+            </button>
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden md:block">
+              <Button className="bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+            </a>
+          </div>
         </div>
         
         {/* Mobile Menu */}

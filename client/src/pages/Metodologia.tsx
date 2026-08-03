@@ -44,17 +44,18 @@ export default function Metodologia() {
             <button onClick={() => setLocation("/blog")} className="text-sm text-gray-600 hover:text-blue-900 transition">Blog</button>
           </div>
           
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2"
-          >
-            {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
-          </button>
-          
-          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
-            <Button className="hidden md:block bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2"
+              aria-label="Abrir menú"
+            >
+              {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
+            </button>
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden md:block">
+              <Button className="bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+            </a>
+          </div>
         </div>
         
         {/* Mobile Menu */}
@@ -88,12 +89,15 @@ export default function Metodologia() {
           </div>
 
           {/* Imagen Clases en Vivo - Responsiva */}
-          <div className="mb-12 rounded-lg overflow-hidden shadow-lg bg-gray-50 flex items-center justify-center -mx-4 md:mx-0">
+          <div className="mb-12 rounded-lg overflow-hidden shadow-lg bg-gray-50 flex items-center justify-center">
             <img
               src={asset("images/metodologia.webp")}
               alt="Clases en Vivo con Tutores, Tecnología e Inteligencia Artificial"
-              className="w-screen md:w-full h-auto"
-              loading="lazy"
+              width={1024}
+              height={1536}
+              className="w-full h-auto block"
+              fetchPriority="high"
+              decoding="async"
               style={{
                 objectFit: 'cover',
                 height: '500px',

@@ -44,17 +44,18 @@ export default function Certificacion() {
             <button onClick={() => setLocation("/blog")} className="text-sm text-gray-600 hover:text-blue-900 transition">Blog</button>
           </div>
           
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2"
-          >
-            {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
-          </button>
-          
-          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
-            <Button className="hidden md:block bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2"
+              aria-label="Abrir menú"
+            >
+              {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
+            </button>
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden md:block">
+              <Button className="bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+            </a>
+          </div>
         </div>
         
         {/* Mobile Menu */}
@@ -77,13 +78,16 @@ export default function Certificacion() {
 
       {/* Main Content */}
       <section className="pt-0 pb-20 bg-blue-50">
-        <div className="w-full">
+        <div className="w-full overflow-hidden">
           <div className="mb-12 overflow-hidden">
             <img
               src={asset("images/certificacion.webp")}
               alt="Certifica lo que Realmente Sabes Hacer"
-              className="w-screen h-auto -translate-y-[10%]"
-              loading="lazy"
+              width={1122}
+              height={1076}
+              className="w-full h-auto block -translate-y-[10%]"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>

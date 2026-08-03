@@ -44,17 +44,18 @@ export default function Empresas() {
             <button onClick={() => setLocation("/blog")} className="text-sm text-gray-600 hover:text-blue-900 transition">Blog</button>
           </div>
           
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2"
-          >
-            {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
-          </button>
-          
-          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
-            <Button className="hidden md:block bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2"
+              aria-label="Abrir menú"
+            >
+              {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
+            </button>
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden md:block">
+              <Button className="bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+            </a>
+          </div>
         </div>
         
         {/* Mobile Menu */}
@@ -77,9 +78,17 @@ export default function Empresas() {
 
       {/* Main Content */}
       <section className="py-0 bg-white">
-        <div className="w-full">
+        <div className="w-full overflow-hidden">
           <div className="mb-0">
-            <img src={asset("images/empresas.webp")} alt="Para Empresas" className="w-screen h-auto" loading="lazy" />
+            <img
+              src={asset("images/empresas.webp")}
+              alt="Para Empresas"
+              width={1122}
+              height={1017}
+              className="w-full h-auto block"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         </div>
         <div className="container py-20">

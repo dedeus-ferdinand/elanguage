@@ -51,17 +51,18 @@ export default function Home() {
             <button onClick={() => setLocation("/blog")} className="text-sm text-gray-600 hover:text-blue-900 transition">Blog</button>
           </div>
           
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2"
-          >
-            {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
-          </button>
-          
-          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
-            <Button className="hidden md:block bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2"
+              aria-label="Abrir menú"
+            >
+              {menuOpen ? <X className="w-6 h-6 text-blue-900" /> : <Menu className="w-6 h-6 text-blue-900" />}
+            </button>
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden md:block">
+              <Button className="bg-red-500 hover:bg-red-600 text-white">Agenda tu diagnóstico</Button>
+            </a>
+          </div>
         </div>
         
         {/* Mobile Menu */}
@@ -180,13 +181,13 @@ export default function Home() {
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-red-500 hover:bg-red-600 text-white">
+                <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full bg-red-500 hover:bg-red-600 text-white">
                     Agenda tu diagnóstico
                   </Button>
                 </a>
-                <a href={DRIVE_PROGRAM_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="border-blue-900 text-blue-900 hover:bg-blue-50">
+                <a href={DRIVE_PROGRAM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="w-full border-blue-900 text-blue-900 hover:bg-blue-50">
                     Descargar el Programa Detallado
                   </Button>
                 </a>
