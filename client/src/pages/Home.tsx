@@ -25,9 +25,9 @@ export default function Home() {
   const [, setLocation] = useLocation();
 
   usePageMeta({
-    title: "E-Language | Programa de aceleración lingüística de inglés",
+    title: "E-Language México | Inglés Ejecutivo para Profesionales",
     description:
-      "Transforme su inglés laboral en 12 semanas con metodología híbrida. Evaluación práctica y certificación alineada a SEP y CONOCER.",
+      "Domina el inglés laboral en 12 semanas con metodología híbrida avalada por SEP y CONOCER. Programa para profesionales y empresas en México.",
     path: "/",
     image: "images/hero.webp",
   });

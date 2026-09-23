@@ -106,17 +106,40 @@ export default function Certificacion() {
                 code: "Estándar EC0679",
                 title: "Uso de la lengua inglesa en un contexto laboral",
                 description: "Ideal para mandos medios y personal operativo de alto rendimiento. Certifica la capacidad de comunicarse eficazmente en situaciones laborales rutinarias y técnicas.",
+                path: "/certificacion/ec0679",
               },
               {
                 code: "Estándar EC0974",
                 title: "Uso de la lengua inglesa en un contexto laboral avanzado",
                 description: "Diseñado para la alta dirección y negociadores internacionales. Certifica la capacidad de liderar conversaciones complejas y cerrar acuerdos en inglés.",
+                path: "/certificacion/ec0974",
               },
             ].map((standard, idx) => (
-              <Card key={idx} className="bg-white p-8 border-l-4 border-blue-900 shadow-sm">
+              <Card
+                key={idx}
+                className={`bg-white p-8 border-l-4 border-blue-900 shadow-sm ${standard.path ? "cursor-pointer hover:shadow-md transition-shadow" : ""}`}
+                onClick={standard.path ? () => setLocation(standard.path!) : undefined}
+                onKeyDown={
+                  standard.path
+                    ? (e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setLocation(standard.path!);
+                        }
+                      }
+                    : undefined
+                }
+                role={standard.path ? "link" : undefined}
+                tabIndex={standard.path ? 0 : undefined}
+              >
                 <p className="text-blue-900 font-bold text-sm mb-2">{standard.code}</p>
                 <h3 className="text-blue-900 font-bold text-lg mb-3">{standard.title}</h3>
                 <p className="text-gray-700 text-sm">{standard.description}</p>
+                {standard.path && (
+                  <p className="text-blue-900 text-sm font-semibold mt-4">
+                    Ver landing {standard.code.includes("0679") ? "EC0679" : "EC0974"} →
+                  </p>
+                )}
               </Card>
             ))}
           </div>

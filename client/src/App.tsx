@@ -9,6 +9,10 @@ import { useAnalyticsPageViews } from "./hooks/useAnalyticsPageViews";
 const Home = lazy(() => import("./pages/Home"));
 const Metodologia = lazy(() => import("./pages/Metodologia"));
 const Certificacion = lazy(() => import("./pages/Certificacion"));
+const Ec0679 = lazy(() => import("./pages/certificacion/Ec0679"));
+const Ec0679Agenda = lazy(() => import("./pages/certificacion/Ec0679Agenda"));
+const Ec0974 = lazy(() => import("./pages/certificacion/Ec0974"));
+const Ec0974Agenda = lazy(() => import("./pages/certificacion/Ec0974Agenda"));
 const Empresas = lazy(() => import("./pages/Empresas"));
 const Fundadora = lazy(() => import("./pages/Fundadora"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -26,6 +30,10 @@ function AppRouter() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/metodologia" component={Metodologia} />
+      <Route path="/certificacion/ec0679/agenda" component={Ec0679Agenda} />
+      <Route path="/certificacion/ec0679" component={Ec0679} />
+      <Route path="/certificacion/ec0974/agenda" component={Ec0974Agenda} />
+      <Route path="/certificacion/ec0974" component={Ec0974} />
       <Route path="/certificacion" component={Certificacion} />
       <Route path="/empresas" component={Empresas} />
       <Route path="/fundadora" component={Fundadora} />

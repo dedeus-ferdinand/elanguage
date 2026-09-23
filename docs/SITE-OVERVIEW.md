@@ -30,10 +30,21 @@ Todo estático (sin rutas dinámicas tipo `/post/:id`).
 |------|--------|
 | `/` | Home |
 | `/metodologia` | Metodología |
-| `/certificacion` | Certificación |
+| `/certificacion` | Certificación (hub) |
 | `/empresas` | Para Empresas |
 | `/fundadora` | Fundadora |
 | `/404` + fallback | Not Found |
+
+### Certificaciones CONOCER
+
+| Ruta | Página |
+|------|--------|
+| `/certificacion/ec0679` | Landing EC0679 |
+| `/certificacion/ec0679/agenda` | Agendar EC0679 |
+| `/certificacion/ec0974` | Landing EC0974 |
+| `/certificacion/ec0974/agenda` | Agendar EC0974 |
+
+Rutas en minúsculas, agrupadas bajo `/certificacion`. El hub general sigue siendo `/certificacion`.
 
 ---
 
@@ -51,6 +62,9 @@ Todo estático (sin rutas dinámicas tipo `/post/:id`).
 | Manus storage | Ya no se usa en logo ni en las 4 imágenes de páginas |
 
 Carpeta de assets: `client/public/images/`
+
+| EC0679 landing | `client/public/images/ec0679/` — tarjetas, certificado, oficina; pendiente hero editorial e isotipo final |
+| EC0974 landing | `client/public/images/ec0974/` — reemplazar placeholders con artes finales del repo Manus |
 
 ---
 

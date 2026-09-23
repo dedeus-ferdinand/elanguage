@@ -1,4 +1,7 @@
 export const CAL_COM_URL = "https://cal.com/paulina-gonzalez-v935po/30min";
+export const CAL_COM_EC0679_EMBED =
+  "https://cal.com/paulina-gonzalez-v935po/reunion-i-preguntas?embed=true";
+export const CAL_COM_EC0974_LINK = "paulina-gonzalez-v935po/reunion-i-preguntas";
 export const CAL_COM_EMPRESAS_URL =
   "https://cal.com/paulina-gonzalez-v935po/reunion-de-30-min-i-empresarial";
 export const DRIVE_PROGRAM_URL =
