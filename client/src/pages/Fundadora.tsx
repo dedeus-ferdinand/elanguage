@@ -154,7 +154,7 @@ export default function Fundadora() {
                   "Licenciatura en Enseñanza del Inglés – BUAP",
                   "Teacher's Diploma – Cambridge Assessment English",
                   "Certificate in Advanced English (C1)",
-                  "Certificación CONOCER EC0934",
+                  "Certificación CONOCER EC0679 y EC0974",
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-gray-700">
                     <Award className="w-4 h-4 text-orange-500" />

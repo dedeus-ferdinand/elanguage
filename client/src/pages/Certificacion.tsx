@@ -6,7 +6,11 @@ import { useState } from "react";
 import { useLocation } from "wouter";
 import { asset } from "@/lib/asset";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { CAL_COM_URL } from "@/lib/links";
+import {
+  CAL_COM_URL,
+  CEDULA_CENTRO_EVALUADOR,
+  RAZON_SOCIAL_CENTRO_EVALUADOR,
+} from "@/lib/links";
 
 export default function Certificacion() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -95,7 +99,7 @@ export default function Certificacion() {
           
           <div className="max-w-4xl mb-12">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              En E-Language desarrollamos sus competencias lingüísticas al máximo nivel. Al concluir el programa, y tras demostrar la solidez de sus habilidades en nuestra evaluación práctica, usted tendrá la oportunidad de presentar el proceso formal de certificación. Como Centro Evaluador, alineamos sus competencias para que pueda obtener un reconocimiento con validez oficial permanente emitido por la Secretaría de Educación Pública (SEP) a través del CONOCER.
+              En E-Language desarrollamos sus competencias lingüísticas al máximo nivel. Al concluir el programa, y tras demostrar la solidez de sus habilidades en nuestra evaluación práctica, usted tendrá la oportunidad de presentar el proceso formal de certificación. Como Centro Evaluador ({RAZON_SOCIAL_CENTRO_EVALUADOR}, con clave de acreditación ante el CONOCER {CEDULA_CENTRO_EVALUADOR}), alineamos sus competencias para que pueda obtener un reconocimiento con validez oficial permanente emitido por la Secretaría de Educación Pública (SEP) a través del CONOCER.
             </p>
           </div>
 
