@@ -98,8 +98,15 @@ export default function Certificacion() {
         <div className="container">
           
           <div className="max-w-4xl mb-12">
+            <h1 className="text-4xl font-bold text-blue-900 mb-6">
+              Certifica lo que Realmente Sabes Hacer
+            </h1>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              En E-Language desarrollamos sus competencias lingüísticas al máximo nivel. Al concluir el programa, y tras demostrar la solidez de sus habilidades en nuestra evaluación práctica, usted tendrá la oportunidad de presentar el proceso formal de certificación. Como Centro Evaluador ({RAZON_SOCIAL_CENTRO_EVALUADOR}, con clave de acreditación ante el CONOCER {CEDULA_CENTRO_EVALUADOR}), alineamos sus competencias para que pueda obtener un reconocimiento con validez oficial permanente emitido por la Secretaría de Educación Pública (SEP) a través del CONOCER.
+              En E-Language desarrollamos sus competencias lingüísticas al máximo nivel. Al concluir el programa, y tras demostrar la solidez de sus habilidades en nuestra evaluación práctica, usted tendrá la oportunidad de presentar el proceso formal de certificación.{" "}
+              <strong>
+                Como Centro Evaluador ({RAZON_SOCIAL_CENTRO_EVALUADOR}, con clave de acreditación ante el CONOCER {CEDULA_CENTRO_EVALUADOR})
+              </strong>
+              , alineamos sus competencias para que pueda obtener un reconocimiento con validez oficial permanente emitido por la Secretaría de Educación Pública (SEP) a través del CONOCER.
             </p>
           </div>
 
