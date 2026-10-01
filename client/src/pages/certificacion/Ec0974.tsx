@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { asset } from "@/lib/asset";
+import { CEDULA_CENTRO_EVALUADOR } from "@/lib/links";
+import { ensureCertFonts, preloadLcpImage } from "@/lib/perf";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { META_PIXEL_ID_EC0974, useMetaPixel } from "@/hooks/useMetaPixel";
 import "./ec0974.css";
@@ -21,10 +23,12 @@ import "./ec0974.css";
 const BOOKING_PATH = "/certificacion/ec0974/agenda";
 
 const IMG = {
-  mark: asset("images/ec0974/mark.png"),
-  isotipoOficial: asset("images/ec0974/isotipo-oficial.png"),
+  isotipo: asset("images/isotipo-centro-evaluador.png"),
   heroCertificate: asset("images/ec0974/hero-certificate.webp"),
 };
+
+ensureCertFonts();
+preloadLcpImage(IMG.heroCertificate);
 
 const navItems = [
   ["Comparativa", "#comparativa"],
@@ -63,10 +67,11 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 function Brand({ compact = false, official = false }: { compact?: boolean; official?: boolean }) {
   return (
     <a href="#hero" className={`brand ${compact ? "brand--compact" : ""} ${official ? "brand--official" : ""}`} aria-label="Certificación EC0974, volver al inicio">
-      <span className="brand-mark"><img src={official ? IMG.isotipoOficial : IMG.mark} alt="" /></span>
+      <span className="brand-mark"><img src={IMG.isotipo} alt="" /></span>
       <span className="brand-copy">
         <strong>EC0974</strong>
         <span>Red CONOCER / SEP</span>
+        <small className="brand-cedula">Cédula {CEDULA_CENTRO_EVALUADOR}</small>
       </span>
     </a>
   );
@@ -137,7 +142,14 @@ export default function Ec0974() {
             </div>
             <div className="hero-visual" aria-label="Visual editorial de certificación EC0974">
               <div className="hero-visual-frame" />
-              <img src={IMG.heroCertificate} alt="E-LANGUAGE y certificación EC0974 con una profesional sosteniendo certificados internacionales" />
+              <img
+                src={IMG.heroCertificate}
+                alt="E-LANGUAGE y certificación EC0974 con una profesional sosteniendo certificados internacionales"
+                width={613}
+                height={812}
+                decoding="async"
+                fetchPriority="high"
+              />
             </div>
             <div className="hero-benefits">
               {[
@@ -253,7 +265,7 @@ export default function Ec0974() {
 
         <section id="diagnostico" className="diagnostic-section">
           <div className="container diagnostic-inner">
-            <div className="diagnostic-emblem"><img src={IMG.isotipoOficial} alt="Isotipo EC de certificación" /></div>
+            <div className="diagnostic-emblem"><img src={IMG.isotipo} alt="Isotipo del Centro Evaluador" /></div>
             <div className="diagnostic-copy"><SectionLabel>Evaluación gratuita de perfil</SectionLabel><h2>Agenda tu Diagnóstico para la Certificación EC0974</h2><p>Elige el horario que te convenga en nuestra agenda. Un asesor revisará tus certificados actuales y te confirmará tu nivel de preparación sin costo.</p></div>
             <div className="diagnostic-details"><span><Check size={14} /> Sin costo y sin compromiso</span><span><Check size={14} /> Reserva directa en tu calendario con confirmación automática</span><span><Check size={14} /> Orientación según tu certificado actual</span></div>
             <Link className="button button--orange" href={BOOKING_PATH}>Agendar Diagnóstico <ArrowUpRight size={16} /></Link>

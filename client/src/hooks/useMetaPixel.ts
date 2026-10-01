@@ -25,9 +25,14 @@ declare global {
 }
 
 const initedPixelIds = new Set<string>();
+let scriptInjected = false;
 
 function ensureFbqScript() {
-  if (window.fbq) return;
+  if (scriptInjected || window.fbq) {
+    scriptInjected = true;
+    return;
+  }
+  scriptInjected = true;
 
   const n: Fbq = function (...args: unknown[]) {
     if (n.callMethod) {
@@ -47,8 +52,7 @@ function ensureFbqScript() {
   const script = document.createElement("script");
   script.async = true;
   script.src = "https://connect.facebook.net/en_US/fbevents.js";
-  const firstScript = document.getElementsByTagName("script")[0];
-  firstScript?.parentNode?.insertBefore(script, firstScript);
+  document.head.appendChild(script);
 }
 
 function trackMetaPageView(pixelId: string) {
@@ -60,9 +64,30 @@ function trackMetaPageView(pixelId: string) {
   window.fbq!("track", "PageView");
 }
 
-/** Solo en rutas de funnel certificación (EC0679 / EC0974). No en index.html global. */
+function scheduleIdle(fn: () => void, delayMs: number) {
+  const run = () => window.setTimeout(fn, delayMs);
+  if ("requestIdleCallback" in window) {
+    (
+      window as Window & {
+        requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void;
+      }
+    ).requestIdleCallback(run, { timeout: delayMs + 2000 });
+  } else {
+    run();
+  }
+}
+
+const META_PIXEL_DELAY_MS = 5500;
+
+/** Solo en rutas de funnel certificación (EC0679 / EC0974). Diferido post-LCP. */
 export function useMetaPixel(pixelId: string = META_PIXEL_ID_EC0679) {
   useEffect(() => {
-    trackMetaPageView(pixelId);
+    let cancelled = false;
+    scheduleIdle(() => {
+      if (!cancelled) trackMetaPageView(pixelId);
+    }, META_PIXEL_DELAY_MS);
+    return () => {
+      cancelled = true;
+    };
   }, [pixelId]);
 }

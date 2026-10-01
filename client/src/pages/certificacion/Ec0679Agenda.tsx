@@ -17,6 +17,7 @@ export default function Ec0679Agenda() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    void import("@/index.css");
   }, []);
 
   return (

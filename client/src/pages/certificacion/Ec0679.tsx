@@ -1,4 +1,4 @@
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useState } from "react";
 import {
   ArrowRight,
   Award,
@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { asset } from "@/lib/asset";
+import { CEDULA_CENTRO_EVALUADOR } from "@/lib/links";
+import { ensureCertFonts, preloadLcpImage } from "@/lib/perf";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useMetaPixel } from "@/hooks/useMetaPixel";
 import "./ec0679.css";
@@ -25,7 +27,7 @@ import "./ec0679.css";
 const AGENDAMIENTO_PATH = "/certificacion/ec0679/agenda";
 
 const IMG = {
-  isotipo: asset("images/ec0679/isotipo.png"),
+  isotipo: asset("images/isotipo-centro-evaluador.png"),
   certificado: asset("images/ec0679/certificado-ejemplo.webp"),
   tarjeta1: asset("images/ec0679/tarjeta1.webp"),
   tarjeta2: asset("images/ec0679/tarjeta2.webp"),
@@ -33,6 +35,9 @@ const IMG = {
   oficina: asset("images/ec0679/oficina.webp"),
   hero: asset("images/ec0679/hero.webp"),
 };
+
+ensureCertFonts();
+preloadLcpImage(IMG.hero);
 
 const benefits = [
   {
@@ -159,10 +164,6 @@ export default function Ec0679() {
   });
   useMetaPixel();
 
-  const shellStyle = {
-    ["--ec0679-hero-bg" as string]: `url(${IMG.hero})`,
-  } as CSSProperties;
-
   const simulatorCorrectAnswers = [1, 0, 0];
   const simScore = useMemo(
     () =>
@@ -187,7 +188,7 @@ export default function Ec0679() {
   };
 
   return (
-    <div className="ec0679-landing site-shell" style={shellStyle}>
+    <div className="ec0679-landing site-shell">
       <div className="urgency-bar">
         <span className="urgency-marker">●</span> Convocatoria abierta · Evaluación oficial EC0679{" "}
         <span className="urgency-separator">/</span>{" "}
@@ -203,6 +204,7 @@ export default function Ec0679() {
               EVALUADOR
             </strong>
             <small>SEP · CONOCER · EC0679</small>
+            <small className="brand-cedula">Cédula {CEDULA_CENTRO_EVALUADOR}</small>
           </span>
         </a>
         <nav className={mobileOpen ? "main-nav mobile-nav" : "main-nav"}>
@@ -229,7 +231,16 @@ export default function Ec0679() {
 
       <main>
         <section id="inicio" className="hero-section">
-          <div className="hero-media" aria-hidden="true" />
+          <div className="hero-media" aria-hidden="true">
+            <img
+              src={IMG.hero}
+              alt=""
+              width={1536}
+              height={1024}
+              decoding="async"
+              fetchPriority="high"
+            />
+          </div>
           <div className="hero-overlay" aria-hidden="true" />
           <div className="hero-content shell-width">
             <div className="hero-copy">
@@ -657,6 +668,7 @@ export default function Ec0679() {
             <span>
               <strong>CENTRO EVALUADOR</strong>
               <small>SEP · CONOCER · EC0679</small>
+              <small className="brand-cedula">Cédula {CEDULA_CENTRO_EVALUADOR}</small>
             </span>
           </div>
           <p>Certificación de inglés laboral intermedio para profesionales que quieren avanzar con evidencia.</p>

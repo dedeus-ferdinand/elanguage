@@ -1,0 +1,16 @@
+/* Self-hosted Montserrat + Open Sans (latin) for main site chrome */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("/fonts/montserrat-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/opensans-latin.woff2") format("woff2");
+}

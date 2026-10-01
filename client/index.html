@@ -10,27 +10,55 @@
       content="Domina el inglés laboral en 12 semanas con metodología híbrida avalada por SEP y CONOCER. Programa para profesionales y empresas en México." />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
-    <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap"
-      media="print"
-      onload="this.media='all'" />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" />
-    </noscript>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRGF8N6CQV"></script>
+    <!-- Route-aware LCP image + cert fonts (runs before SPA JS) -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-TRGF8N6CQV', { send_page_view: false });
+      (function () {
+        var p = location.pathname || "/";
+        var isEc0974 = p.indexOf("/certificacion/ec0974") === 0;
+        var isEc0679 = p.indexOf("/certificacion/ec0679") === 0;
+        var img = "/images/hero.webp";
+        if (isEc0974) img = "/images/ec0974/hero-certificate.webp";
+        else if (isEc0679) img = "/images/ec0679/hero.webp";
+
+        function add(rel, href, as, attrs) {
+          var l = document.createElement("link");
+          l.rel = rel;
+          l.href = href;
+          if (as) l.as = as;
+          if (attrs) {
+            Object.keys(attrs).forEach(function (k) {
+              l.setAttribute(k, attrs[k]);
+            });
+          }
+          document.head.appendChild(l);
+        }
+
+        add("preload", img, "image", { fetchpriority: "high" });
+
+        if (isEc0974 || isEc0679) {
+          var certIcon = "/images/isotipo-centro-evaluador.png";
+          document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach(function (el) {
+            el.setAttribute("href", certIcon);
+          });
+          add("stylesheet", "/fonts/cert.css");
+          add("preload", "/fonts/manrope-latin.woff2", "font", {
+            type: "font/woff2",
+            crossorigin: "",
+          });
+        } else {
+          add("stylesheet", "/fonts/site.css");
+          add("preload", "/fonts/opensans-latin.woff2", "font", {
+            type: "font/woff2",
+            crossorigin: "",
+          });
+          add("preload", "/fonts/montserrat-latin.woff2", "font", {
+            type: "font/woff2",
+            crossorigin: "",
+          });
+        }
+      })();
     </script>
+    <!-- GA4 deferred via src/lib/analytics.ts — off critical path -->
   </head>
 
   <body>
